@@ -206,6 +206,19 @@ def start_server():
         persist_directory = os.path.join(config.KNOWLEDGE_FILE_PATH, kb_name)
         print(persist_directory)
 
+        # 联网搜索
+        # try:
+        #     from search_engine_parser.core.engines.bing import Search as BingSearch
+        #     bsearch = BingSearch()
+        #     search_args = (query, 1)
+        #     results = await bsearch.async_search(*search_args)
+        #     web_content = results["description"][:5]
+        #     logger.info("Web_Search - {}".format(web_content))
+        # except Exception as e:
+        #     logger.error("Web_Search - {}".format(e))
+        #     web_content = ""
+        web_content = ""
+
         # 从目录加载向量
         logger.info("Start load vector database... %s", time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         embedding = HuggingFaceEmbeddings(model_name=config.EMBEDDING_MODEL_PATH)
@@ -220,7 +233,7 @@ def start_server():
         page.sort()
 
         context = [docs.page_content for docs in docs]
-        prompt = f"已知PDF内容：\n{context}\n根据已知信息回答问题：\n{query}\n所有的回答都根据已知信息"
+        prompt = f"已知PDF内容：\n{context}\n根据已知信息回答问题：\n{query}\n网络检索内容：\n{web_content}"
 
         def decorate(generator):
             print("generator", generator)
