@@ -16,11 +16,15 @@ text2vec-base-multilingual
 chatglm2-6b-int4
 
 ## 2. 项目启动方法
-### 2.1 环境配置
+
+### 2.1 config.py文件  
+检查模型文件和文件存放路径
+
+### 2.2 环境配置
 python3.8
 
     pip install -r requirements.txt
-### 2.2 启动项目
+### 2.3 启动项目
 需要先启动api再启动webui
 
     python api.py
