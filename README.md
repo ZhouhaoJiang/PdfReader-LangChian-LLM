@@ -1,3 +1,9 @@
+这个项目存在很多需要优化的地方
+跑完这个项目你能学会 本地化部署ChatGLM LangChain基础的使用
+
+There are a lot of improvements to be made in this project
+By the end of this project you will be able to localize the basics of ChatGLM and LangChain
+
 # PdfReader-LangChian-LLM
 Implement PDF parsing based on LangChain and LLM language model  
 基于LangChain和LLM语言模型实现PDF解析阅读  
